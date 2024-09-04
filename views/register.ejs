@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .conditional-fields {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#" class="text-white text-decoration-none">
+                    <h1 class="h4">Online Learning Platform</h1>
+                </a>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item "><a class="nav-link text-white" href="index.html">Home</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" href="about_us.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="pricing.html">Pricing</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" href="account.html">My Account</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="course/browse_course.html">Browse</a></li>
+                        <li class="nav-item " ><a class="nav-link text-white" href="faqs.html">FAQs</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Register Account</h2>
+                
+                <form method="post" enctype="multipart/form-data" id="registration-form">
+                    <div class="error"><%=error%></div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email address" value="<%=form.email%>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" name="phoneNumber" id="phone" placeholder="Enter your phone number" value="<%=form.phoneNumber%>"  required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="retype-password" class="form-label">Retype Password</label>
+                        <input type="password" class="form-control" name="retypePassword" id="retype-password" placeholder="Retype your password" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="profile-picture" class="form-label">Profile Picture</label>
+                        <input type="file" class="form-control" name="profilePicture" id="profile-picture" accept="image/*">
+                    </div>
+                    <div class="mb-3">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="firstName" id="first-name" placeholder="Enter your first name"  value="<%=form.firstName%>"  required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="lastName" id="last-name" placeholder="Enter your last name"  value="<%=form.lastName%>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Enter your address"  value="<%=form.address%>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" name="city" id="city" placeholder="Enter your city"  value="<%=form.city%>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="zipcode" class="form-label">Zipcode</label>
+                        <input type="text" class="form-control" name="zipcode" id="zipcode" placeholder="Enter your zipcode" pattern="\d{4,6}"  value="<%=form.zipcode%>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country</label>
+                        <select class="form-select" name="country" id="country"  value="<%=form.country%>" required>
+                            <% countries.forEach(function(country){ %>
+                                <option value="<%=country.Code%>"><%= country.Name%></option>
+                              <% }) %>
+
+
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Account Type</label><br>
+                        <input type="radio" id="instructor" name="accountType" name="account-type" value="Instructor" required>
+                        <label for="instructor" class="form-label">Instructor</label>
+                        <input type="radio" id="learner" name="accountType" value="Learner" required>
+                        <label for="learner" class="form-label">Learner</label>
+                    </div>
+
+                    <div id="instructor-fields" class="conditional-fields">
+                        <div class="mb-3">
+                            <label for="school-name" class="form-label">School Name</label>
+                            <input type="text" class="form-control" name="schoolName" id="school-name" placeholder="Enter your school name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="job-title" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" name="jobTitle" id="job-title" placeholder="Enter your job title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="specialization" class="form-label">Specialization</label>
+                            <select multiple class="form-select" name="specialization" id="specialization">
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="Literature">Literature</option>
+                                <option value="History">History</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2024 Online Learning Platform</p>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="policy.html" class="text-white">Terms of Service</a> |
+                    <a href="policy.html" class="text-white">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://datahub.io/core/country-list/r/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const countrySelect = document.getElementById('country');
+                    data.forEach(country => {
+                        const option = document.createElement('option');
+                        option.value = country.code;
+                        option.textContent = country.name;
+                        countrySelect.appendChild(option);
+                    });
+                });
+
+            document.querySelectorAll('input[name="accountType"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.value === 'Instructor') {
+                        document.getElementById('instructor-fields').style.display = 'block';
+                    } else {
+                        document.getElementById('instructor-fields').style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

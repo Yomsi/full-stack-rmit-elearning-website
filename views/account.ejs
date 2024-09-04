@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Information</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        
+        <header class="bg-dark text-white py-3">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="#" class="text-white text-decoration-none">
+                        <h1 class="h4">Online Learning Platform</h1>
+                    </a>
+                    <nav>
+                        <ul class="nav">
+                            <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                            <li class="nav-item active"><a class="nav-link text-white" href="about_us.html">About Us</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="pricing.html">Pricing</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="account.html">My Account</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="course/browse_course.html">Browse</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="faqs.html">FAQs</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="container mt-5 flex-grow-1">
+            <div id="logged-in">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">My Account</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="/profile/<%=account._id%>.png" alt="Profile Picture" class="img-fluid rounded-circle">
+                            </div>
+                            <div class="col-md-8">
+                                <h3><%=account.firstName%> <%=account.lastName%> </h3>
+                                <p>Email: <%=account.email%></p>
+                                <p>Phone: <%=account.phoneNumber%></p>
+                
+                                <a class="btn btn-primary" href="/logout.html" role="button">Log Out</a>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+                <% if (account.accountType=='Instructor'){%>
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">My Course</h2>
+                        <div class="row">
+                            <a class="btn btn-primary" href="/add_course.html" role="button">Add Course</a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+
+        </main>
+
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 Online Learning Platform</p>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <a href="policy.html" class="text-white">Terms of Service</a> |
+                        <a href="policy.html" class="text-white">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+    <div id="memberModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content bg-warning text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title">Member Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="" id="modal-img" class="img-fluid rounded-circle mb-3" alt="Member Photo">
+                    <h5 id="modal-name"></h5>
+                    <p id="modal-role"></p>
+                    <p id="modal-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+</body>
+</html>

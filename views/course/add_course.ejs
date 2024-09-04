@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Course</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .content {
+            flex: 1;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white p-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#" class="text-white h1">Online Learning Platform</a>
+                <nav>
+                    <a href="../index.html" class="text-white me-3">Home</a>
+                    <a href="browse_course.html" class="text-white me-3">Browse Courses</a>
+                    <a href="../contact.html" class="text-white">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5 content">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Add New Course</h2>
+                        <form action="add_course.html" method="POST" enctype="multipart/form-data">
+                            <div class="error"><%=error%></div>
+                            <div class="mb-3">
+                                <label for="courseName" class="form-label">Course Name</label>
+                                <input type="text" class="form-control" id="courseName" name="courseName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mainImage" class="form-label">Main Image</label>
+                                <input type="file" class="form-control" id="mainImage" name="mainImage" accept="image/*" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Course</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Additional Information</h5>
+                        <p class="card-text">Fill in the course details and upload an image to create a new course. After submission, you will be redirected to the course detail page for further configuration.</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white p-3 mt-auto">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="mb-0">© 2024 Online Learning Platform. All rights reserved.</p>
+                <nav>
+                    <a href="../policy.html" class="text-white me-3">Privacy Policy</a>
+                    <a href="../policy.html" class="text-white me-3">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

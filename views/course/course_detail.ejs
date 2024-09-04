@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .course-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .btn-custom {
+            margin-right: 10px;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .content {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex flex-column min-vh-100">
+        <header class="bg-dark text-white p-3">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="#" class="text-white h1">Online Learning Platform</a>
+                    <nav>
+                        <a href="../index.html" class="text-white me-3">Home</a>
+                        <a href="browse_course.html" class="text-white me-3">Browse Courses</a>
+                        <a href="../contact.html" class="text-white">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title">Course Title</h2>
+                            <div class="course-image mb-3">
+                                <img src="course-main-image.jpg" alt="Course Image">
+                            </div>
+                            <p class="card-text">Course description goes here. Include detailed information about the
+                                course content, learning outcomes, and any prerequisites.</p>
+
+                            <div id="action-buttons" class="mt-4">
+                                <div id="learner-buttons" class="d-none">
+                                    <a href="trial-page.html" class="btn btn-primary btn-custom">Trial For 2-Day</a>
+                                    <a href="course_placement.html" class="btn btn-success btn-custom">Enrol</a>
+                                </div>
+
+                                <div id="instructor-buttons" class="d-none">
+                                    <a href="edit-course-page.html" class="btn btn-warning btn-custom">Edit Course</a>
+                                    <a href="manage-content-page.html" class="btn btn-info btn-custom">Manage
+                                        Content</a>
+                                </div>
+
+                                <div id="guest-info" class="d-none">
+                                    <p class="alert alert-info">Please log in to view enrollment options or manage
+                                        course content.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Instructor Details</h5>
+                            <p class="card-text">Instructor's name and other details. Include a link to the instructor's
+                                profile.</p>
+                            <a href="instructor_profile.html" class="btn btn-primary">View Instructor Profile</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-white p-3 mt-auto">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="mb-0">© 2024 Online Learning Platform. All rights reserved.</p>
+                    <nav>
+                        <a href="../policy.html" class="text-white me-3">Privacy Policy</a>
+                        <a href="../policy.html" class="text-white me-3">Terms of Service</a>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var userRole = 'Learner';
+
+            if (userRole === 'Learner') {
+                document.getElementById('learner-buttons').classList.remove('d-none');
+            } else if (userRole === 'Instructor') {
+                document.getElementById('instructor-buttons').classList.remove('d-none');
+            } else {
+                document.getElementById('guest-info').classList.remove('d-none');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
